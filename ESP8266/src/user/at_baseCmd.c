@@ -34,6 +34,25 @@ uint16_t GPIO_time_active=0;
 uint16_t captured_time;
 uint8_t  connection_TTL;
 
+void hardcoded_connect()
+{
+   os_timer_disarm(&auto_setup);
+
+   //Setup timer
+   os_timer_setfn(&auto_setup, (os_timer_func_t *)auto_setup_elapsed, NULL);
+
+   //Set up the timer, (timer, milliseconds, 1=cycle 0=once)
+   os_timer_arm(&auto_setup, 2000, 0);
+}
+
+void auto_setup_elapsed()
+{
+   char temp[128];
+   os_sprintf(temp,"=\"TCP\",\"yourURL\",80");
+   
+   at_setupCmdCipStartLog(19,temp);
+}
+
 /**
   * @brief  handles the ticks of the polling timer to check if there was a edge of activity. If yes it sets up the connection and starts the get data system.
   * @param  arg: arguments passed TODO: still a bit spooky, find out how to pass args
