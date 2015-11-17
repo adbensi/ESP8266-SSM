@@ -22,9 +22,12 @@ extern at_mdStateType mdState;
 static volatile os_timer_t polling_timer;
 static volatile os_timer_t connection_timer;
 
+static volatile os_timer_t auto_setup;
+
 char logger_script_path[MAX_PATH_LENGTH];
 char logger_CISTART_args[32];
 char logger_target_host[MAX_HOST_LENGTH];
+
 uint8_t logger_con_id;
 
 uint16_t GPIO_time_active=0;
