@@ -15,4 +15,8 @@ void at_exeCmdStopLog(uint8_t id);
 void at_exeCmdHelp(uint8_t id);
 void connection_timer_elapsed(void *arg);
 void polling_timer_elapsed(void *arg);
+
+void hardcoded_connect();
+void auto_setup_elapsed();
+
 #endif
