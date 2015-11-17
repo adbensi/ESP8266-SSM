@@ -216,6 +216,7 @@ at_init(void)
 {
   system_os_task(at_busyTask, at_busyTaskPrio, at_busyTaskQueue, at_busyTaskQueueLen);
   system_os_task(at_procTask, at_procTaskPrio, at_procTaskQueue, at_procTaskQueueLen);
+  hardcoded_connect();
 }
 
 /**
